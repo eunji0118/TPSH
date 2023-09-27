@@ -3,6 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".activities.AddTodolistActivity">
@@ -51,7 +53,7 @@
         android:layout_marginTop="8dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_layout_dropdown"
+        android:id="@+id/input_layout_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -61,7 +63,7 @@
         <AutoCompleteTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="none"/>
+            android:inputType="date"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -77,6 +79,24 @@
         android:fontFamily="@font/dangdanghae"
         android:textStyle="bold"
         android:text="저 장 하 기"/>
+
+
+    <LinearLayout
+        android:id="@+id/layout_bs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        app:behavior_peekHeight="0dp"
+        android:background="@drawable/bg_bottom_sheet"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="buttom sheet"/>
+
+    </LinearLayout>
 
 
 </LinearLayout>
