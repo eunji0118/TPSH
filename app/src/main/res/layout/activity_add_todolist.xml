@@ -52,20 +52,14 @@
         android:textSize="20sp"
         android:layout_marginTop="8dp"/>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_layout_date"
+    <TextView
+        android:id="@+id/tv_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:hint="날 짜 선 택"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-
-        <AutoCompleteTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="date"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
+        android:textSize="18sp"
+        android:fontFamily="@font/dangdanghae"
+        android:hint="날 짜 선 택"/>
 
     <TextView
         android:id="@+id/tv_save"
@@ -78,25 +72,12 @@
         android:layout_gravity="center|right"
         android:fontFamily="@font/dangdanghae"
         android:textStyle="bold"
-        android:text="저 장 하 기"/>
+        android:text="저 장 하 기  "
+        android:drawableRight="@drawable/ic_bnv_check"/>
 
 
-    <LinearLayout
-        android:id="@+id/layout_bs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-        app:behavior_peekHeight="0dp"
-        android:background="@drawable/bg_bottom_sheet"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="buttom sheet"/>
 
-    </LinearLayout>
+
 
 
 </LinearLayout>
