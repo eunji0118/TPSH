@@ -36,9 +36,7 @@ public class MainActivity extends AppCompatActivity {
             else if (id==R.id.bnv_setting)
                 getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,new SettingFragment()).commit();
 
-
             return true;
-
         });
 
     }
