@@ -1,6 +1,8 @@
 package com.eunji0118.tpsmarthabit.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +20,7 @@ import com.eunji0118.tpsmarthabit.R;
 import com.eunji0118.tpsmarthabit.data.Todo;
 import com.eunji0118.tpsmarthabit.databinding.RecyclerItemAddTodolistBinding;
 import com.eunji0118.tpsmarthabit.fragments.ImportantFragment;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -25,6 +28,8 @@ public class TodoAdapter  extends RecyclerView.Adapter<TodoAdapter.VH> {
 
     Context context;
     ArrayList<Todo> todos;
+    SQLiteDatabase db;
+
 
 
     public TodoAdapter(Context context, ArrayList<Todo> todos) {
@@ -44,16 +49,41 @@ public class TodoAdapter  extends RecyclerView.Adapter<TodoAdapter.VH> {
         Todo todo=todos.get(position);
         holder.binding.tvTitle.setText(todo.title);
         holder.binding.tvDate.setText(todo.date);
-
+        if (todo.isDone==1)holder.binding.checkbox.setChecked(true);
+        else holder.binding.checkbox.setChecked(false);
+        if (todo.important==1)holder.binding.imgBtn.setImageResource(R.drawable.baseline_star_24);
+        else holder.binding.imgBtn.setImageResource(R.drawable.baseline_star_outline_24);
         holder.binding.checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (compoundButton.isChecked()){
-                    Toast.makeText(context, "on", Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(context, "off", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, "on", Toast.LENGTH_SHORT).show();
 
+                    db=context.openOrCreateDatabase("mytodo",Context.MODE_PRIVATE,null);
+                    db.execSQL("UPDATE todo SET isDone=1 WHERE _no=?",new String[]{todo._no+""});
+                    todo.isDone=1;
+
+                }else {
+                    db=context.openOrCreateDatabase("mytodo",Context.MODE_PRIVATE,null);
+                    db.execSQL("UPDATE todo SET isDone=0 WHERE _no=?",new String[]{todo._no+""});
+                    todo.isDone=0;
                 }
+            }
+        });
+        holder.binding.imgBtn.setOnClickListener(view -> {
+//            Intent intent=new Intent(context,ImportantFragment.class);
+            if (todo.important==1){
+                todo.important=0;
+                holder.binding.imgBtn.setImageResource(R.drawable.baseline_star_outline_24);
+                db=context.openOrCreateDatabase("mytodo",Context.MODE_PRIVATE,null);
+                db.execSQL("UPDATE todo SET important=0 WHERE _no=?",new String[]{todo._no+""});
+
+            }else {
+                todo.important=1;
+                holder.binding.imgBtn.setImageResource(R.drawable.baseline_star_24);
+                db=context.openOrCreateDatabase("mytodo",Context.MODE_PRIVATE,null);
+                db.execSQL("UPDATE todo SET important=1 WHERE _no=?",new String[]{todo._no+""});
+
             }
         });
 
@@ -65,19 +95,11 @@ public class TodoAdapter  extends RecyclerView.Adapter<TodoAdapter.VH> {
 
     class VH extends RecyclerView.ViewHolder{
         RecyclerItemAddTodolistBinding binding;
-        CheckBox cb;
-        TextView title;
-        TextView date;
-        ImageButton imgbnt;
+
 
         public VH(@NonNull View itemView) {
             super(itemView);
             binding=RecyclerItemAddTodolistBinding.bind(itemView);
-            cb=binding.checkbox;
-            title=binding.tvTitle;
-            date=binding.tvDate;
-            imgbnt=binding.imgBtn;
-
         }
     }
 }

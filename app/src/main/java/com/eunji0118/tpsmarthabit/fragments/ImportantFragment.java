@@ -14,6 +14,8 @@ import com.eunji0118.tpsmarthabit.databinding.FragmentImportantBinding;
 public class ImportantFragment extends Fragment {
     FragmentImportantBinding binding;
 
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

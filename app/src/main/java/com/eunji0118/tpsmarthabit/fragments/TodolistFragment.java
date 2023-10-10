@@ -59,7 +59,7 @@ public class TodolistFragment extends Fragment {
         SQLiteDatabase db=getActivity().openOrCreateDatabase("mytodo", Context.MODE_PRIVATE,null);
         db.execSQL("CREATE TABLE IF NOT EXISTS todo(_no INTEGER PRIMARY KEY AUTOINCREMENT,title TEXT NOT NULL,date TEXT NOT NULL,id TEXT,isDone INTEGER(1) NOT NULL,important INTEGER(1) NOT NULL)");
 
-        Cursor cursor=db.rawQuery("SELECT title,date,isDone,important FROM todo",null);
+        Cursor cursor=db.rawQuery("SELECT _no,title,date,isDone,important FROM todo",null);
 
         if (cursor !=null){
 
@@ -68,15 +68,25 @@ public class TodolistFragment extends Fragment {
             while (cursor.moveToNext()){
 
                 Todo todo=new Todo();
-                todo.title=cursor.getString(0);
-                todo.date=cursor.getString(1);
-                todo.isDone=cursor.getInt(2);
-                todo.important=cursor.getInt(3);
+                todo._no=cursor.getInt(0);
+                todo.title=cursor.getString(1);
+                todo.date=cursor.getString(2);
+                todo.isDone=cursor.getInt(3);
+                todo.important=cursor.getInt(4);
 
                 todos.add(todo);
             }
 
             Toast.makeText(getActivity(), todos.size()+"", Toast.LENGTH_SHORT).show();
+
+            TodoAdapter adapter=new TodoAdapter(getActivity(),todos);
+            binding.recyclerView.setAdapter(adapter);
+
+            if (todos.size()>0){
+                binding.tvText.setVisibility(View.GONE);
+            }else {
+                binding.tvText.setVisibility(View.VISIBLE);
+            }
 
         }
 
