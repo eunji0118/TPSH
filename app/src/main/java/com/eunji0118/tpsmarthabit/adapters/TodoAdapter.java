@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,15 +51,33 @@ public class TodoAdapter  extends RecyclerView.Adapter<TodoAdapter.VH> {
         Todo todo=todos.get(position);
         holder.binding.tvTitle.setText(todo.title);
         holder.binding.tvDate.setText(todo.date);
-        if (todo.isDone==1)holder.binding.checkbox.setChecked(true);
-        else holder.binding.checkbox.setChecked(false);
+
+        if (todo.isDone==1){
+            holder.binding.checkbox.setChecked(true);
+            holder.binding.tvTitle.setTextColor(Color.LTGRAY);
+            holder.binding.tvTitle.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+
+        }else{
+            holder.binding.checkbox.setChecked(false);
+            holder.binding.tvTitle.setTextColor(Color.BLACK);
+            holder.binding.tvTitle.setPaintFlags(Paint.HINTING_OFF);
+        }
+
         if (todo.important==1)holder.binding.imgBtn.setImageResource(R.drawable.baseline_star_24);
         else holder.binding.imgBtn.setImageResource(R.drawable.baseline_star_outline_24);
+
+        holder.itemView.setOnLongClickListener(view -> {
+            db=context.openOrCreateDatabase("mytodo",Context.MODE_PRIVATE,null);
+            db.execSQL("DELETE FROM todo WHERE _no=?",new String[]{todo._no+""});
+            todos.remove(position);
+            notifyDataSetChanged();
+            return true;
+        });
+
         holder.binding.checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (compoundButton.isChecked()){
-//                    Toast.makeText(context, "on", Toast.LENGTH_SHORT).show();
 
                     db=context.openOrCreateDatabase("mytodo",Context.MODE_PRIVATE,null);
                     db.execSQL("UPDATE todo SET isDone=1 WHERE _no=?",new String[]{todo._no+""});
@@ -68,10 +88,13 @@ public class TodoAdapter  extends RecyclerView.Adapter<TodoAdapter.VH> {
                     db.execSQL("UPDATE todo SET isDone=0 WHERE _no=?",new String[]{todo._no+""});
                     todo.isDone=0;
                 }
+
+                notifyDataSetChanged();
+
             }
+
         });
         holder.binding.imgBtn.setOnClickListener(view -> {
-//            Intent intent=new Intent(context,ImportantFragment.class);
             if (todo.important==1){
                 todo.important=0;
                 holder.binding.imgBtn.setImageResource(R.drawable.baseline_star_outline_24);
@@ -100,6 +123,8 @@ public class TodoAdapter  extends RecyclerView.Adapter<TodoAdapter.VH> {
         public VH(@NonNull View itemView) {
             super(itemView);
             binding=RecyclerItemAddTodolistBinding.bind(itemView);
+
+
         }
     }
 }
