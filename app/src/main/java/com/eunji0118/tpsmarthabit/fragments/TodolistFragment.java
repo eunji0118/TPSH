@@ -77,7 +77,7 @@ public class TodolistFragment extends Fragment {
                 todos.add(todo);
             }
 
-            Toast.makeText(getActivity(), todos.size()+"", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getActivity(), todos.size()+"", Toast.LENGTH_SHORT).show();
 
             TodoAdapter adapter=new TodoAdapter(getActivity(),todos);
             binding.recyclerView.setAdapter(adapter);

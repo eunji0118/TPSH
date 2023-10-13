@@ -12,14 +12,30 @@ import com.eunji0118.tpsmarthabit.fragments.ImportantFragment;
 import com.eunji0118.tpsmarthabit.fragments.SettingFragment;
 import com.eunji0118.tpsmarthabit.fragments.TodolistFragment;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
 
+    int year,month,day;
+
+
+    SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yy년  MM월  dd일   hh : mm : ss");
+    String dateData=new String();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding=ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        Date date=new Date();
+        dateData= simpleDateFormat.format(date);
+        binding.tvTodayDate.setText(String.valueOf(dateData));
+
+
+
 
         getSupportFragmentManager().beginTransaction().add(R.id.container_fragment,new CalendarFragment()).commit();
 
@@ -40,4 +56,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+
+
 }

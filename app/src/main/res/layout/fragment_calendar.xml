@@ -9,12 +9,28 @@
         android:id="@+id/calendar_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/tv_list"
+        android:layout_width="match_parent"
+        android:text="일 정 관 리"
+        android:drawableLeft="@drawable/baseline_favorite8888888"
+        android:drawableRight="@drawable/baseline_favorite8888888"
+        android:textSize="20sp"
+        android:fontFamily="@font/dangdanghae"
+        android:textColor="#FF3BEB"
+        android:layout_below="@id/calendar_view"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_height="wrap_content"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:padding="4dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_height="match_parent"
-        android:layout_below="@id/calendar_view"/>
+        android:layout_below="@id/tv_list"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -27,6 +43,15 @@
         android:layout_margin="20dp"
         android:layout_height="wrap_content"/>
 
+    <TextView
+        android:id="@+id/tv_text"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_list"
+        android:fontFamily="@font/dangdanghae"
+        android:text="일정이 없습니다."
+        android:textSize="30sp" />
 
 
 </RelativeLayout>

@@ -3,11 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:id="@+id/tv_list"
+        android:layout_width="match_parent"
+        android:text="D - DAY"
+        android:drawableLeft="@drawable/baseline_favorite8888888"
+        android:drawableRight="@drawable/baseline_favorite8888888"
+        android:padding="12dp"
+        android:textSize="25sp"
+        android:fontFamily="@font/dangdanghae"
+        android:textColor="#FF3BEB"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_height="wrap_content"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
+        android:layout_below="@id/tv_list"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

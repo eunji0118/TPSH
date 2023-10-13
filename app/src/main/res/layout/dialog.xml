@@ -36,7 +36,7 @@
             android:padding="15dp"
             android:layout_margin="12dp"
             android:textColor="@color/black"
-            android:layout_gravity="center|right"
+            android:layout_gravity="center"
             android:fontFamily="@font/dangdanghae"
             android:textStyle="bold"
             android:text=" 저 장 "/>

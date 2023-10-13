@@ -16,11 +16,29 @@
         app:civ_border_color="#FF3BEB"
         android:src="@drawable/iv_profile"/>
     <TextView
+        android:id="@+id/tv_today_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/civ"
-        android:layout_marginTop="50dp"
-        android:text="2023.09"/>
+        android:textStyle="bold"
+        android:fontFamily="@font/dangdanghae"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="55dp"
+        android:text="2023년 00월 00일"/>
+    <TextView
+        android:id="@+id/tv_today"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/civ"
+        android:layout_marginTop="25dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:fontFamily="@font/dangdanghae"
+        android:textSize="18sp"
+        android:layout_marginLeft="20dp"
+        android:text="오늘은"/>
     <FrameLayout
         android:id="@+id/container_fragment"
         android:layout_width="match_parent"
