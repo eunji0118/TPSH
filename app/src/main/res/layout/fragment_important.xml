@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:fontFamily="@font/dangdanghae"
-        android:text="중요가 없습니다."
+        android:text="중요한 일이 없습니다."
         android:textSize="30sp" />
 
 

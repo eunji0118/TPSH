@@ -11,7 +11,7 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        app:title="     할 일 추가하기"
+        app:title="     할 일 추가"
         app:titleTextColor="@color/black"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -72,8 +72,7 @@
         android:layout_gravity="center|right"
         android:fontFamily="@font/dangdanghae"
         android:textStyle="bold"
-        android:text="저 장 하 기  "
-        android:drawableRight="@drawable/ic_bnv_check"/>
+        android:text="  저  장  "/>
 
 
 

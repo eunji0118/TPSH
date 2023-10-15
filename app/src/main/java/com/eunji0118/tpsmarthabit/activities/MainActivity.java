@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     int year,month,day;
 
 
-    SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yy년  MM월  dd일   hh : mm : ss");
+    SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yy년  MM월  dd일");
     String dateData=new String();
     @Override
     protected void onCreate(Bundle savedInstanceState) {

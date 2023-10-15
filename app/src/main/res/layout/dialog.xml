@@ -39,7 +39,7 @@
             android:layout_gravity="center"
             android:fontFamily="@font/dangdanghae"
             android:textStyle="bold"
-            android:text=" 저 장 "/>
+            android:text="  저  장  "/>
 
 
     </LinearLayout>
