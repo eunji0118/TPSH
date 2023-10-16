@@ -7,7 +7,7 @@
         android:icon="@drawable/ic_bnv_todo"/>
     <item android:id="@+id/bnv_dday" android:title="디데이"
         android:icon="@drawable/ic_bnv_dday_icon"/>
-    <item android:id="@+id/bnv_favorite" android:title="중 요"
+    <item android:id="@+id/bnv_important" android:title="중 요"
         android:icon="@drawable/ic_bnv_favo_icon"/>
     <item android:id="@+id/bnv_setting" android:title="세 팅"
         android:icon="@drawable/ic_bnv_setting_icon"/>

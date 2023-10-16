@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ci_profile"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#FF3BEB"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:src="@drawable/iv_profile"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/ci_profile">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_layout_email"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="85dp"
+            android:layout_marginRight="85dp"
+            android:layout_marginTop="20dp"
+            android:hint="이 메 일"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_button"
+                android:inputType="textEmailAddress"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_button"
+            android:padding="12dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="65dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/dangdanghae"
+            android:text="  로 그 아 웃  "/>
+
+        <TextView
+            android:id="@+id/tv_unregister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_button"
+            android:padding="12dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/dangdanghae"
+            android:text="  회 원 탈 퇴  "/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

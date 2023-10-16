@@ -2,38 +2,38 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
-
-    <CalendarView
-        android:id="@+id/calendar_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <TextView
         android:id="@+id/tv_list"
         android:layout_width="match_parent"
-        android:text="일 정 관 리"
+        android:text="D - DAY"
         android:drawableLeft="@drawable/baseline_favorite8888888"
         android:drawableRight="@drawable/baseline_favorite8888888"
-        android:textSize="20sp"
+        android:padding="12dp"
+        android:textSize="25sp"
         android:fontFamily="@font/dangdanghae"
         android:textColor="#FF3BEB"
-        android:layout_below="@id/calendar_view"
         android:textStyle="bold"
         android:gravity="center"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
         android:layout_height="wrap_content"/>
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:padding="4dp"
+        android:layout_below="@id/tv_list"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:layout_height="match_parent"
-        android:layout_below="@id/tv_list"/>
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/dangdanghae"
+        android:textSize="30sp"
+        android:text="디데이가 없습니다."/>
+
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -45,16 +45,5 @@
         android:layout_alignParentRight="true"
         android:layout_margin="20dp"
         android:layout_height="wrap_content"/>
-
-    <TextView
-        android:id="@+id/tv_text"
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_list"
-        android:fontFamily="@font/dangdanghae"
-        android:text="일정이 없습니다."
-        android:textSize="30sp" />
-
 
 </RelativeLayout>

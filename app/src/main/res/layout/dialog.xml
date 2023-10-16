@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="일 정 제 목"
+            android:textColor="@color/black"
+            android:fontFamily="@font/dangdanghae"
+            android:paddingTop="25dp"
+            android:layout_margin="10dp"
+            android:textSize="20sp"
+            android:layout_marginTop="8dp"/>
+        <EditText
+            android:id="@+id/et_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/dangdanghae"
+            android:backgroundTint="#FF3BEB"
+            android:textColorHighlight="#FF3BEB"
+            android:textSelectHandle="@drawable/ic_select_handle"
+            android:hint="  일 정 입 력"
+            android:maxLength="10"
+            android:textSize="18sp"
+            android:inputType="text"/>
+
+        <TextView
+            android:id="@+id/tv_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_button"
+            android:padding="15dp"
+            android:layout_margin="12dp"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:fontFamily="@font/dangdanghae"
+            android:textStyle="bold"
+            android:text="  저  장  "/>
+
+
+    </LinearLayout>
