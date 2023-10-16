@@ -1,4 +1,4 @@
-package com.eunji0118.tpsmarthabit.network;
+package com.eunji0118.tpsmarthabit;
 
 import android.app.Application;
 

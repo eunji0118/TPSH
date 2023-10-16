@@ -8,7 +8,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.eunji0118.tpsmarthabit.databinding.ActivityLoginBinding;
-import com.eunji0118.tpsmarthabit.network.G;
+import com.eunji0118.tpsmarthabit.G;
 import com.kakao.sdk.auth.model.OAuthToken;
 import com.kakao.sdk.common.util.Utility;
 import com.kakao.sdk.user.UserApiClient;
