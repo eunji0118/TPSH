@@ -10,6 +10,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        //카카오 SDK 저장소 경로  (로그인)
+        maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
     }
 }
 
